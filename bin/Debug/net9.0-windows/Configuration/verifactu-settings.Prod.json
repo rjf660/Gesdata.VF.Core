@@ -1,0 +1,46 @@
+{
+  "$schema": "./verifactu-settings.schema.json",
+  "_comment": "Configuración para entorno de PRODUCCIÓN",
+  "IsProduction": true,
+  // ✅ En PROD, NO guardar SOAP (y SI persistir remisiones pendientes)
+  "SaveDebugSoap": false,
+  "DebugSoapFolder": null,
+  "Aeat": {
+    "Endpoint": "https://www2.aeat.es/wlpl/TIKE-CONT/SistemaFacturacion",
+    "SendTimeoutSeconds": 120,
+    "ReceiveTimeoutSeconds": 120,
+    "OpenTimeoutSeconds": 30,
+    "CloseTimeoutSeconds": 30,
+    "OperationTimeoutSeconds": 120,
+    "ValidateServerCertificate": true,
+    "RevocationMode": "Online",
+    "TrustedStoreLocation": "LocalMachine",
+    "RetryCount": 2,
+    "RetryBaseDelayMilliseconds": 1000,
+    "RetryBackoffFactor": 2.0
+  },
+  "Retry": {
+    "MaxAttempts": 4,
+    "PollingIntervalMinutes": 2,
+    "Delays": {
+      "FirstRetryMinutes": 5,
+      "SecondRetryMinutes": 15,
+      "ThirdRetryMinutes": 30,
+      "FourthRetryMinutes": 60,
+      "MaxDelayHours": 6,
+      "BackoffFactor": 2.0
+    }
+  },
+  "XmlSchemaVersion": "1.0",
+  "SystemVersion": "1.0.0",
+  "Qr": {
+    "Environment": 2
+  },
+  "SignaturePolicy": {
+    "Oid": "",
+    "Url": "",
+    "PolicyHashBase64": "",
+    "HashAlgorithm": "SHA1"
+  },
+  "CertificadoThumbprint": "TU_THUMBPRINT_PROD"
+}

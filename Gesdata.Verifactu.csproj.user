@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <None Update="AEAT\Esquemas\ConsultaLR.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="AEAT\Esquemas\NO VERIFACTU\EventosSIF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="AEAT\Esquemas\NO VERIFACTU\RespuestaValRegistNoVeriFactu.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="AEAT\Esquemas\RespuestaConsultaLR.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="AEAT\Esquemas\RespuestaSuministro.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="AEAT\Esquemas\SuministroInformacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="AEAT\Esquemas\SuministroLR.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="AEAT\Esquemas\xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+</Project>

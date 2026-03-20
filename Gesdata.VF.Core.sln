@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11612.150 stable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gesdata.VF.Core", "Gesdata.VF.Core.csproj", "{9E796EFF-9D0A-96F1-E36F-9A7BF6C3DF2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E796EFF-9D0A-96F1-E36F-9A7BF6C3DF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E796EFF-9D0A-96F1-E36F-9A7BF6C3DF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E796EFF-9D0A-96F1-E36F-9A7BF6C3DF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E796EFF-9D0A-96F1-E36F-9A7BF6C3DF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F49D8A34-3201-47CA-B476-C7F23E3D8AD1}
+	EndGlobalSection
+EndGlobal

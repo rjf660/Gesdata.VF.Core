@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>warnings</Nullable>
+		<AssemblyName>Gesdata.VF.Core</AssemblyName>
+		<RootNamespace>Gesdata.VF.Core</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Configuration\verifactu-settings.json" />
+	  <None Remove="Configuration\verifactu-settings.Pre.json" />
+	  <None Remove="Configuration\verifactu-settings.Prod.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Configuration\verifactu-settings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Configuration\verifactu-settings.Pre.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Configuration\verifactu-settings.Prod.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.11" />
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.ServiceModel.Primitives" Version="8.1.2" />
+		<PackageReference Include="System.ServiceModel.Http" Version="8.1.2" />
+		<PackageReference Include="System.ServiceModel.Security" Version="6.0.0" />
+		<PackageReference Include="FirmaXadesNetCore" Version="1.1.0" />
+		<PackageReference Include="QRCoder" Version="1.7.0" />
+		<PackageReference Include="SkiaSharp" Version="3.119.1" />
+		<PackageReference Include="FluentValidation" Version="12.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.11" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="9.0.11" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Gesdata.Comun\Gesdata.Comun.csproj" />
+		<ProjectReference Include="..\Gesdata.VF.Contracts\Gesdata.VF.Contracts.csproj" />
+	</ItemGroup>
+</Project>
