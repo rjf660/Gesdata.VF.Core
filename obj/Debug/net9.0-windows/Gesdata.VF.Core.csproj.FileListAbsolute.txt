@@ -42,3 +42,4 @@ D:\Projects\SharedProjects\VeriFactu\Gesdata.VF.Core\obj\Debug\net9.0-windows\re
 D:\Projects\SharedProjects\VeriFactu\Gesdata.VF.Core\bin\Debug\net9.0-windows\Configuration\verifactu-settings.json
 D:\Projects\SharedProjects\VeriFactu\Gesdata.VF.Core\bin\Debug\net9.0-windows\Configuration\verifactu-settings.Pre.json
 D:\Projects\SharedProjects\VeriFactu\Gesdata.VF.Core\bin\Debug\net9.0-windows\Configuration\verifactu-settings.Prod.json
+D:\Projects\SharedProjects\VeriFactu\Gesdata.VF.Core\obj\Debug\net9.0-windows\Gesdata.VF.Core.sourcelink.json
