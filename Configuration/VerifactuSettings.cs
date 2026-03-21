@@ -42,6 +42,8 @@ namespace Gesdata.VF.Core.Configuration
     /// </summary>
     public sealed class VerifactuSettings
     {
+        public ModoSistemaFacturacion Modo { get; set; }
+
         // ✅ Configuración de entorno
         public bool IsProduction { get; set; } = false;
 
