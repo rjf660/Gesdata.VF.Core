@@ -4,7 +4,7 @@
   "IsProduction": false,
   // ✅ En PRE, guardar SOAP para depuración (remisiones NO se persisten)
   "SaveDebugSoap": true,
-  "DebugSoapFolder": "%LOCALAPPDATA%\\Gesdata.RH\\VeriFactu\\SOAP",
+  "DebugSoapFolder": "C:\\Gesdata\\VeriFactu\\SOAP",
   "Aeat": {
     "Endpoint": "https://prewww1.aeat.es:443/wlpl/TIKE-CONT/SistemaFacturacion",
     "SendTimeoutSeconds": 120,

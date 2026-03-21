@@ -22,6 +22,11 @@ namespace Gesdata.VF.Core.Configuration
         /// ⚠️ Conservación local + exportación manual.
         /// ⚠️ Usar solo si cliente lo requiere explícitamente.
         /// </summary>
+        /// 
+        /// <remarks>
+        /// El modo NoVeriFactu lo utilizo para deshabilitar todas las funciones VeriFactu y simular un sistema tradicional,
+        /// principalmente para pruebas internas y validación de escenarios sin VeriFactu.
+        /// </remarks>
         NoVeriFactu = 2
     }
     public enum AeatEnvironment
