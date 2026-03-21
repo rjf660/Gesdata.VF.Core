@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gesdata.VF.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d659dff49088dcd54392f51d079a00da0a334603")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9a474f5a725d783d119a79b25c23474963d6629")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gesdata.VF.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gesdata.VF.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
