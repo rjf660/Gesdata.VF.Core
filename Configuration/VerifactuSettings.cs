@@ -1,3 +1,7 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Gesdata.VF.Contracts.XML;
+
 namespace Gesdata.VF.Core.Configuration
 {
     /// <summary>
@@ -29,6 +33,7 @@ namespace Gesdata.VF.Core.Configuration
         /// </remarks>
         NoVeriFactu = 2
     }
+
     public enum AeatEnvironment
     {
         Produccion = 1,
@@ -39,9 +44,112 @@ namespace Gesdata.VF.Core.Configuration
     /// Configuración de VeriFactu.
     /// ✅ CONSOLIDADO: Toda la configuración de VeriFactu en un solo lugar.
     /// ✅ MODO VERIFACTU: Exento de Art. 9 (registro de eventos).
+    /// ✅ SINGLETON ESTÁTICO: Acceso global desde cualquier proyecto.
+    /// ✅ Se inicializa desde App.xaml.cs al inicio de la aplicación.
     /// </summary>
     public sealed class VerifactuSettings
     {
+        #region Singleton Pattern
+
+        private static VerifactuSettings _instance;
+        private static readonly Lock _lock = new();
+        private static string _configFilePath;
+
+        private static readonly JsonSerializerOptions _jsonSerializerOptions = new()
+        {
+            WriteIndented = true,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+        };
+
+        /// <summary>
+        /// Obtiene la instancia única de VerifactuSettings.
+        /// ✅ Se auto-inicializa con valores por defecto si no se ha llamado a Initialize().
+        /// ⚠️ En producción, se debe llamar a Initialize() desde App.xaml.cs al inicio.
+        /// </summary>
+        public static VerifactuSettings Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    lock (_lock)
+                    {
+                        _instance ??= new VerifactuSettings();
+                    }
+                }
+                return _instance;
+            }
+        }
+
+        /// <summary>
+        /// Inicializa el singleton con la configuración cargada desde JSON.
+        /// ⚠️ Se debe llamar UNA VEZ desde App.xaml.cs al inicio de la aplicación.
+        /// </summary>
+        /// <param name="instance">Instancia cargada desde JSON.</param>
+        /// <param name="configFilePath">Ruta del archivo de configuración (opcional, para poder guardar cambios).</param>
+        public static void Initialize(VerifactuSettings instance, string configFilePath = null)
+        {
+            ArgumentNullException.ThrowIfNull(instance);
+
+            lock (_lock)
+            {
+                _instance = instance;
+                _configFilePath = configFilePath;
+            }
+        }
+
+        /// <summary>
+        /// Verifica si VerifactuSettings ha sido inicializado explícitamente con Initialize().
+        /// </summary>
+        public static bool IsInitialized => _instance != null;
+
+        /// <summary>
+        /// Guarda la configuración actual al archivo JSON.
+        /// </summary>
+        /// <param name="filePath">Ruta del archivo (opcional, usa la ruta de Initialize si no se especifica).</param>
+        /// <exception cref="InvalidOperationException">Si no se ha especificado ruta de archivo.</exception>
+        public static void Save(string filePath = null)
+        {
+            string targetPath = filePath ?? _configFilePath;
+
+            if (string.IsNullOrEmpty(targetPath))
+                throw new InvalidOperationException(
+                    "No se puede guardar la configuración: no se ha especificado la ruta del archivo. " +
+                    "Proporciona la ruta en Initialize() o en Save().");
+
+            lock (_lock)
+            {
+                string json = JsonSerializer.Serialize(_instance, _jsonSerializerOptions);
+                File.WriteAllText(targetPath, json, new System.Text.UTF8Encoding(false));
+            }
+        }
+
+        /// <summary>
+        /// Guarda la configuración de forma asíncrona.
+        /// </summary>
+        public static async Task SaveAsync(string filePath = null)
+        {
+            string targetPath = filePath ?? _configFilePath;
+
+            if (string.IsNullOrEmpty(targetPath))
+                throw new InvalidOperationException(
+                    "No se puede guardar la configuración: no se ha especificado la ruta del archivo. " +
+                    "Proporciona la ruta en Initialize() o en SaveAsync().");
+
+            string json;
+            lock (_lock)
+            {
+                json = JsonSerializer.Serialize(_instance, _jsonSerializerOptions);
+            }
+
+            await File.WriteAllTextAsync(targetPath, json, new System.Text.UTF8Encoding(false));
+        }
+
+        #endregion
+
+        #region Propiedades de Configuración
+
         public ModoSistemaFacturacion Modo { get; set; }
 
         // ✅ Configuración de entorno
@@ -95,6 +203,8 @@ namespace Gesdata.VF.Core.Configuration
         /// Default: "1.0"
         /// </summary>
         public string XmlSchemaVersion { get; set; } = "1.0";
+
+        #endregion
     }
 
     /// <summary>
@@ -102,7 +212,9 @@ namespace Gesdata.VF.Core.Configuration
     /// </summary>
     public sealed class AeatSettings
     {
-        public string Endpoint { get; set; } = string.Empty;
+        public static string Endpoint => VerifactuSettings.Instance.IsProduction
+                        ? VFNamespaces.WsEndpoints.VerifactuProd
+                        : VFNamespaces.WsEndpoints.VerifactuPre;// { get; set; } = string.Empty;
 
         // ✅ Timeouts de binding
         public int SendTimeoutSeconds { get; set; } = 120;
