@@ -1,11 +1,11 @@
-using Gesdata.VF.Contracts.Types;
-using Gesdata.VF.Contracts.XML;
-using Gesdata.VF.Core.XML;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using Gesdata.VF.Contracts.Types;
+using Gesdata.VF.Contracts.XML;
+using Gesdata.VF.Core.XML;
 
 namespace Gesdata.VF.Core.Services.Transport.Http
 {

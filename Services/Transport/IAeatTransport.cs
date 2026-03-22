@@ -1,5 +1,5 @@
-using Gesdata.VF.Contracts.Types;
 using System.Security.Cryptography.X509Certificates;
+using Gesdata.VF.Contracts.Types;
 
 namespace Gesdata.VF.Core.Services.Transport
 {

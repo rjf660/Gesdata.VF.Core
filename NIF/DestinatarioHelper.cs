@@ -1,8 +1,8 @@
+using System.Text.RegularExpressions;
 using Gesdata.Comun.NIF; // ← CAMBIO: Core compartido
 using Gesdata.Comun.NIF.VIES; // ← CAMBIO: VIES compartido
 using Gesdata.VF.Contracts.EnumTypes;
 using Gesdata.VF.Contracts.Types;
-using System.Text.RegularExpressions;
 
 namespace Gesdata.VF.Core.NIF
 {

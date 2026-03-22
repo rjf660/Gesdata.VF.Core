@@ -1,13 +1,13 @@
+using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography.Xml;
+using System.Text;
+using System.Xml;
 using FirmaXadesNetCore;
 using FirmaXadesNetCore.Crypto;
 using FirmaXadesNetCore.Signature.Parameters;
 using Gesdata.Comun.Xml.Signatures;
 using Gesdata.Comun.Xml.Signatures.Policies;
 using Gesdata.VF.Core.Configuration;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Xml;
 // Alias para resolver conflicto de nombres
 using XadesNetCorePolicyInfo = FirmaXadesNetCore.Signature.Parameters.SignaturePolicyInfo;
 

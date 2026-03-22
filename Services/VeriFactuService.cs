@@ -1,9 +1,9 @@
+using System.Security.Cryptography.X509Certificates;
 using Gesdata.Comun.Logging;
 using Gesdata.VF.Contracts.Types;
 using Gesdata.VF.Core.Services.Transport;
 using Gesdata.VF.Core.XML;
 using Gesdata.VF.Core.XML.Signatures;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Gesdata.VF.Core.Services
 {

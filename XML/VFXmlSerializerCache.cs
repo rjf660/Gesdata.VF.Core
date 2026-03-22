@@ -1,5 +1,5 @@
-using Gesdata.VF.Contracts.Types;
 using System.Xml.Serialization;
+using Gesdata.VF.Contracts.Types;
 
 namespace Gesdata.VF.Core.XML
 {

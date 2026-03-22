@@ -1,8 +1,8 @@
+using System.Net;
+using System.Text;
 using Gesdata.Comun.Formatos;
 using Gesdata.VF.Contracts.Types;
 using Gesdata.VF.Contracts.XML;
-using System.Net;
-using System.Text;
 
 namespace Gesdata.VF.Core.Services.Qr
 {

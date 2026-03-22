@@ -1,12 +1,12 @@
 // Copyright (c) Gesdata. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using Gesdata.VF.Contracts.Types;
-using Gesdata.VF.Contracts.XML;
 using System.Reflection;
 using System.Text;
 using System.Xml;
 using System.Xml.Schema;
+using Gesdata.VF.Contracts.Types;
+using Gesdata.VF.Contracts.XML;
 
 namespace Gesdata.VF.Core.XML;
 

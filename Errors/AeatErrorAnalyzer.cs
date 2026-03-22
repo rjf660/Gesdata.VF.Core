@@ -1,8 +1,8 @@
-using Gesdata.VF.Contracts.Types;
-using Gesdata.VF.Core.Exceptions;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
+using Gesdata.VF.Contracts.Types;
+using Gesdata.VF.Core.Exceptions;
 
 namespace Gesdata.VF.Core.Errors
 {

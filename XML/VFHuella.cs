@@ -1,9 +1,9 @@
-using Gesdata.Comun.Formatos;
-using Gesdata.VF.Contracts.EnumTypes;
-using Gesdata.VF.Contracts.Types;
 using System.Security.Cryptography;
 using System.Text;
 using System.Xml.Serialization;
+using Gesdata.Comun.Formatos;
+using Gesdata.VF.Contracts.EnumTypes;
+using Gesdata.VF.Contracts.Types;
 
 namespace Gesdata.VF.Core.XML
 {
