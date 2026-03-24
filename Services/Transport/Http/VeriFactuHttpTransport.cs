@@ -47,7 +47,7 @@ namespace Gesdata.VF.Core.Services.Transport.Http
             }
         }
 
-        public async Task<TransportResult<RespuestaRegFactuSistemaFacturacionType>> EnviarRegistroAsync(
+        public async Task<TransportResult<RespuestaRegFactuSistemaFacturacionType>> EnviarLoteRegistroAsync(
             RegFactuSistemaFacturacionType solicitud,
             Uri endpoint,
             X509Certificate2 certificado,

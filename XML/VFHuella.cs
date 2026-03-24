@@ -45,7 +45,7 @@ namespace Gesdata.VF.Core.XML
                 return string.Empty;
 
             if (alta.IDFactura is null)
-                throw new ArgumentNullException(nameof(alta.IDFactura), "IDFactura es obligatorio para ComputeAlta");
+                throw new ArgumentException("La propiedad IDFactura no puede ser null.", nameof(alta));
 
             var id = alta.IDFactura;
             var nif = (id.IDEmisorFactura ?? string.Empty).Trim();
@@ -196,9 +196,9 @@ namespace Gesdata.VF.Core.XML
         {
             if (input is null)
                 return string.Empty;
-            using var sha = SHA256.Create();
+
             var bytes = Encoding.UTF8.GetBytes(input);
-            var hash = sha.ComputeHash(bytes);
+            var hash = SHA256.HashData(bytes);
             var sb = new StringBuilder(hash.Length * 2);
             foreach (var b in hash)
                 sb.AppendFormat("{0:X2}", b);

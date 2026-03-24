@@ -22,18 +22,12 @@ namespace Gesdata.VF.Core.Services
     /// La validación de destinatarios y cálculo de huellas se hace en Application layer
     /// (VeriFactuApplicationService → GrafoBuilderService) ANTES de llamar a este servicio.
     /// </remarks>
-    public sealed class VeriFactuService
+    public sealed class VeriFactuService(
+        IAeatTransport transport,
+        LoggingService logger = null)
     {
-        private readonly IAeatTransport _transport;
-        private readonly LoggingService _logger;
-
-        public VeriFactuService(
-            IAeatTransport transport,
-            LoggingService logger = null)
-        {
-            _transport = transport ?? throw new ArgumentNullException(nameof(transport));
-            _logger = logger ?? new LoggingService();
-        }
+        private readonly IAeatTransport _transport = transport ?? throw new ArgumentNullException(nameof(transport));
+        private readonly LoggingService _logger = logger ?? new LoggingService();
 
         /// <summary>
         /// Registra facturas en AEAT con el flujo de transporte completo:
@@ -50,7 +44,7 @@ namespace Gesdata.VF.Core.Services
         /// 
         /// Este método NO valida ni calcula nada, solo transporta.
         /// </remarks>
-        public async Task<VeriFactuResult<RespuestaRegFactuSistemaFacturacionType>> RegistrarFacturasAsync(
+        public async Task<VeriFactuResult<RespuestaRegFactuSistemaFacturacionType>> RegistrarLoteFacturasAsync(
             RegFactuSistemaFacturacionType solicitud,
             Uri endpoint,
             X509Certificate2 certificado,
@@ -121,7 +115,7 @@ namespace Gesdata.VF.Core.Services
                 }
 
                 // 4. Enviar vía transporte HTTP/SOAP
-                var transportResult = await _transport.EnviarRegistroAsync(
+                var transportResult = await _transport.EnviarLoteRegistroAsync(
                     solicitud,
                     endpoint,
                     certificado,

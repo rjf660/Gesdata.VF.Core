@@ -17,7 +17,7 @@ namespace Gesdata.VF.Core.Services.Transport
         /// <param name="certificado">Certificado X509 para autenticación SSL.</param>
         /// <param name="cancellationToken">Token de cancelación.</param>
         /// <returns>Resultado del transporte con respuesta SOAP y metadatos.</returns>
-        Task<TransportResult<RespuestaRegFactuSistemaFacturacionType>> EnviarRegistroAsync(
+        Task<TransportResult<RespuestaRegFactuSistemaFacturacionType>> EnviarLoteRegistroAsync(
             RegFactuSistemaFacturacionType solicitud,
             Uri endpoint,
             X509Certificate2 certificado,
